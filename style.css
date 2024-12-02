@@ -55,6 +55,12 @@ header{
     align-items: center;
 }
 
+
+.menuJS{
+    font-size: 40px;
+    
+}
+
 .lupita{
     display: none;
 }
@@ -186,12 +192,13 @@ img{
     .barraNavegacion{
         margin-top: 10px;
         display: flex;
-        width: 60px;
-        height: 400px;
+        width: 60px; 
+        height: 100px; /*cambiar a 400 con js*/
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
         margin-left: 10px;
+        padding-bottom:10px;
     }
     
     .logo{
@@ -204,6 +211,10 @@ img{
         
     }
     
+    
+    .busqueda{
+        display: none;
+    }
     .input{
         display: none;
     }
@@ -216,7 +227,7 @@ img{
     .menuPadre{
         width: 100%;
         /* background-color: rgb(158, 107, 107); */
-        display: flex;
+        display: none;  /*Cambiar a flex con js*/
         flex-direction: column;
         justify-content: end;
         /* backdrop-filter: blur(20px) */
@@ -244,7 +255,7 @@ img{
         height: 100%;
         width: 150px;
         margin-right: 2% ;
-        display: flex;
+        display: none; /*cambiar a flex con js*/
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -274,7 +285,7 @@ img{
         margin-top: 10px;
         display: flex;
         width: 60px;
-        height: 400px;
+        height: 100px;
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
@@ -291,6 +302,9 @@ img{
         
     }
     
+    .busqueda{
+        display: none;
+    }
     .input{
         display: none;
     }
@@ -303,7 +317,7 @@ img{
     .menuPadre{
         width: 100%;
         /* background-color: rgb(158, 107, 107); */
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: end;
         /* backdrop-filter: blur(20px) */
@@ -331,7 +345,7 @@ img{
         height: 100%;
         width: 150px;
         margin-right: 2% ;
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -356,8 +370,8 @@ img{
         margin-top: 10px;
         display: flex;
         width: 60px;
-        height: 400px;
-        justify-content: space-between;
+        height: 100px;
+        justify-content: start;
         align-items: center;
         flex-direction: column;
         margin-left: 10px;
@@ -376,7 +390,9 @@ img{
     .input{
         display: none;
     }
-    
+    .busqueda{
+        display: none;
+    }
     .lupita{
         margin-top: 5px;
         font-size: 30px;
@@ -385,7 +401,7 @@ img{
     .menuPadre{
         width: 100%;
         /* background-color: rgb(158, 107, 107); */
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: end;
         /* backdrop-filter: blur(20px) */
@@ -413,7 +429,7 @@ img{
         height: 100%;
         width: 150px;
         margin-right: 2% ;
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -433,6 +449,9 @@ img{
         display: none;
     }
     .lupita{
+        display: none;
+    }
+    .barraNavegacion i.menuJS{
         display: none;
     }
 }

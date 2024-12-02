@@ -1,14 +1,14 @@
-let menuOculto = document.querySelectorAll(".menuOculto")
-let menuItemEvento = document.querySelectorAll(".menuItem")
+let menuOculto = document.querySelector(".menuJS")
 
-menuItemEvento.forEach((evento)=>{
-    evento.addEventListener("click",(menu)=>{
-        menu.forEach((display)=>{
-            let displayActual = display.style.display
-            console.log( displayActual)
-        })
-    })
-})
+
+menuOculto.forEach(e=>{
+    e.addEventListener("click",alert("asda"))
+});
+
+addEventListener
+
+
+
 
 
 //corregir lo de arriba
