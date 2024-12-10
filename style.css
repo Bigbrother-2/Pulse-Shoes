@@ -10,12 +10,20 @@
 /* Fuentes importadas */
 
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
-
 /* .gloria-hallelujah-regular {
   font-family: "Gloria Hallelujah", cursive;
   font-weight: 400;
   font-style: normal;
 } */
+
+@import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
+/* .badeen-display-regular {
+  font-family: "Badeen Display", system-ui;
+  font-weight: 400;
+  font-style: normal;
+} */
+
+
 header{
     display: flex;
     justify-content: center;
@@ -156,6 +164,7 @@ header{
     position: relative;
 }
 
+/* Tratamiento de la imagen*/
 .imagenGrande{
     border: 1px solid blue;
 
@@ -165,8 +174,26 @@ header{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.imagenGrande a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
 }
 
+.imagenGrande a img.zapatillasGrandes{
+    height: 500px;
+    width: auto;
+    object-fit: cover;
+}
+
+
+/* Cuadro Chico Arriba  */
 .cuadroArribaChico{
     border: 1px solid red;
 
@@ -176,8 +203,30 @@ header{
     top:100px;
     left: 350px;
     border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(7px)
 }
 
+.cuadroArribaChico a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top:15px;
+}
+
+.cuadroArribaChico a img.zapatillasArribaChica{
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    
+}
+
+
+/* Cuadro abajo */
 .cuadroAbajoChico{
     border: 1px solid beige;
     width: 200px;
@@ -187,6 +236,25 @@ header{
     left: 700px; 
     border-radius: 30px;
 }
+
+.cuadroAbajoChico a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cuadroChicoTexto{
+    backdrop-filter: blur(7px);  
+    font-family: "Badeen Display", system-ui, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
 
 .textoGrande{
     border: 1px solid blueviolet;
@@ -271,11 +339,7 @@ header{
 
 }
 
-img{
-    height: 500px;
-    width: auto;
-    object-fit: cover;
-}
+
 
 
 
