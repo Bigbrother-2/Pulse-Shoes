@@ -9,18 +9,18 @@
 
 /* Fuentes importadas */
 
-@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
 /* .gloria-hallelujah-regular {
-  font-family: "Gloria Hallelujah", cursive;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Gloria Hallelujah", cursive;
+    font-weight: 400;
+    font-style: normal;
 } */
 
-@import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
+
 /* .badeen-display-regular {
-  font-family: "Badeen Display", system-ui;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Badeen Display", system-ui;
+    font-weight: 400;
+    font-style: normal;
 } */
 
 
@@ -40,8 +40,10 @@ header{
     border-radius: 30px;
     position: fixed;
     backdrop-filter: blur(10px); /* Desenfoque del fondo */
-    background-color: rgba(255, 255, 255, 0.3); /* Color translúcido */
+    background-color: rgba(255, 255, 255, 0.486);/** Color translúcido*/
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+
+    z-index: 10000;
 }
 
 .logo{
@@ -135,8 +137,13 @@ header{
     cursor: pointer;
 }
 
+.menuJS{
+    display: none;
+}
+
 
 .xJS{
+    display: none;
     font-size: 40px;
     background-color: black;
     color: white;
@@ -177,6 +184,7 @@ header{
     display: flex;
     justify-content:center;
     align-items: center;
+    
 }
 .imagenGrande a{
     width: 100%;
@@ -184,12 +192,19 @@ header{
     display: flex;
     justify-content:center;
     align-items: center;
+    
 }
 
+
+
+
+
+/* ARREGLAR LA IMAGEN. ESTA MUY GRANDE: HAY QUE RETOCARLA CON PS */
 .imagenGrande a img.zapatillasGrandes{
     height: 500px;
     width: auto;
     object-fit: cover;
+    
 }
 
 
@@ -255,34 +270,87 @@ header{
 
 
 
-
+/* Titulo de las zapatillas. H1 */
 .textoGrande{
     border: 1px solid blueviolet;
     width: 400px;
     height: 200px;
     position: absolute;
-    top: 150px;
+    top: 100px;
+    left: 50px
 }
+
+.h1Zapatillas{
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 500; /*Del 400 al 900*/
+    font-style: normal;
+    font-size: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Texto p para descripcion de las zapatillas.  */
+
 
 .textoChico{
     border: 1px solid salmon;
 
     height: 100px;
-    width: 300px;
+    width: 500px;
     position: absolute;
-    top: 100%;
-    transform: translateY(-100%);
+    top: 90%;
+    transform: translateY(-90%);
+    left: 50px;
 }
+
+
+/* Boton de comprar la zapatilla */
 
 .botonComprar{
     border: 1px solid green;
 
-    height: 100px;
+    height: 70px;
     width: 150px;
     position: absolute;
-    top: 100%;
-    transform: translateY(-100%);
-    left: 300px ;
+    top: 15%;
+    transform: translateY(-15%);
+    left: 750px ;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.botonComprar div {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    background: linear-gradient(18deg, rgba(244,131,238,.5) 0%, rgba(111,115,255,.5) 100%);
+} 
+
+.botonComprar div a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonComprar div a p{
+    margin-right:5px ;
+}
+.botonComprar div a i{
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 50%;
 }
 .rectanguloInfo{
     border: 1px solid rgb(0, 0, 0);
@@ -373,7 +441,7 @@ header{
 
 
 
-@media only screen and (max-width:320px){
+@media only screen and (max-width:425px){
     header{
         display: flex;
         justify-content: start;
@@ -475,9 +543,7 @@ header{
 
 
 
-
-
-@media only screen and (min-width:321px) and (max-width:425px){
+@media only screen and (min-width:426px) and (max-width:768px){
     header{
         display: flex;
         justify-content: start;
@@ -506,10 +572,11 @@ header{
         width: auto;
         
     }
-    
+
     .busqueda{
         display: none;
     }
+    
     .input{
         display: none;
     }
@@ -523,104 +590,20 @@ header{
         width: 100%;
         /* background-color: rgb(158, 107, 107); */
         display: flex;
-        flex-direction: column;
-        justify-content: end;
-        /* backdrop-filter: blur(20px) */
-    }
-    
-    .menuContenedor{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .menuItem{
-        margin-top: 10px;
-    }
-    .etnia{
-        display: none;
-    }
-
-    .icono{
-        font-size: 30px;
-    }
-    .loginAndShop{
-        /* background-color: red; */
-    
-        height: 100%;
-        width: 150px;
-        margin-right: 2% ;
-        display: none;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-    }
-    
-    .usuario , .carrito{
-        /* background-color: white; */
-        font-size: 30px;
-        margin: 5px;
-    }
-
-    nav i.xJS{
-        display: none;
-    }
-}
-
-@media only screen and (min-width:425px) and (max-width:768px){
-    header{
-        display: flex;
-        justify-content: start;
-        
-    }
-    
-    .barraNavegacion{
-        margin-top: 10px;
-        display: flex;
-        width: 60px;
-        height: 100px;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: column;
-        margin-left: 10px;
-        padding-bottom: 10px;
-        transition: height .5s ease;
-    }
-    
-    .logo{
-        margin-top: 10px;
-    }
-    
-    .logoImagen{
-        height: 40px;
-        width: auto;
-        
-    }
-    
-    .input{
-        display: none;
-    }
-    .busqueda{
-        display: none;
-    }
-    .lupita{
-        margin-top: 5px;
-        font-size: 30px;
-    }
-    
-    .menuPadre{
-        width: 100%;
-        /* background-color: rgb(158, 107, 107); */
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
         /* backdrop-filter: blur(20px) */
+    }
+
+    .menuPadre .menuContenedor .menuItem .etnia{
+        display: none;
     }
     
     .menuContenedor{
-        display: flex;
+        display: none;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 
     .menuItem{
@@ -632,6 +615,7 @@ header{
 
     .icono{
         font-size: 30px;
+        display: flex;
     }
     .loginAndShop{
         /* background-color: red; */
@@ -657,7 +641,7 @@ header{
 }
 
 
-@media only screen and (min-width:768px) and (max-width:1444px){
+@media only screen and (min-width:769px) and (max-width:1444px){
     .barraNavegacion .busqueda i{
         display: none;
     }
