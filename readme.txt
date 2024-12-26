@@ -24,7 +24,9 @@ puma verde : https://www.artstation.com/artwork/9m5z0a artista david abasto
 
 
 
+FOTOS DE FONDO DEL SLIDER 
 
+ADIDAS : https://www.artstation.com/artwork/kQD9dy
 
 
 Cosas para mejorar., 
