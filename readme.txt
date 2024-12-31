@@ -10,6 +10,8 @@ https://www.instagram.com/conceptnikes/?hl=es
 
 Creditos de ArtStation
 
+adidas blancas : https://www.artstation.com/artwork/oJJ1a4
+
 Nike foto negra: https://www.artstation.com/artwork/3NWvv artista Rob Bryant, Jr. 
 
 nike foto naranja: https://www.artstation.com/artwork/e060ZX artista Gonzalo Blanco
@@ -21,6 +23,8 @@ reebook blanca : https://www.artstation.com/artwork/qADz2N artista Roberto Casti
 reebook negra : https://www.artstation.com/artwork/1n09nK artista Amit Sharma
 
 puma verde : https://www.artstation.com/artwork/9m5z0a artista david abasto
+
+Puma blanca  https://www.artstation.com/nathan_di_girolamo
 
 
 

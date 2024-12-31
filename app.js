@@ -45,31 +45,84 @@ function ocultarCosas(){
 
 
 
+// FUNCIONES PARA EL SLIDER 
+
+
+/* Vamos a explicar un poco el codigo para que cuando lo vea de vuelta no se me sea complicado entenderlo y ademas pueda estudiarlo de vuelta */
+
+
+/* Primero lo que debemos hacer es organizar los datos. Para esto tomammos a todas las diapositivas para tenerlas en el js como un nodeList y poder modificarlas, osea hacer la transicion de un lado para el otro.  */
+
+
+let diapositivas = document.querySelectorAll(".slider")
 
 
 
 
+let contadorDiapo = 0
+
+
+/*Segundo paso. Ahora trabajamos con css. Craamos clases de ocultas o activas para ir alternando entre las clases. Porque? porque tenemos que usar un forEach para ejecutar determinada funcion o determinadas ordenes para todas las diapos. Por esto, Cuando usamos el ciclo en el indice 0 usamos la clase activa y para los demas indices usamos la clase ocultas. Para no entrar en quilombos  */
+
+
+function mostrarDiapo ( ) {
+    setInterval(() => {
+
+
+        // Esto oculta todas las diapositivas
+        diapositivas.forEach(diapo=> diapo.classList.remove("activa"))
+
+
+        // Esta parte de aca se encarga de mostar la diapo que sigue. 3
+
+    
+
+        diapositivas[contadorDiapo].classList.add("activa")
+
+        // Esto es lo que cada que termine el setInterval incremente el contador para que en la proxima vuelta cambie la diapo
+        
+        contadorDiapo++
+        
 
 
 
+        // Esto la funcion que va a complir es que con el condicional evalue si el tamaño de las diapo es igual al contador se reinicie para que vuelva a cero y muestre la primera creando asi un bucle. 
 
+        if(contadorDiapo >= diapositivas.length){
+            contadorDiapo = 0
+        }
 
+        console.log(diapositivas[contadorDiapo].classList)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function alerta (){
-    alert("asd")
+    },3000)
+    
+    
 }
+
+
+//  mostrarDiapo()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
