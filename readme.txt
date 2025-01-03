@@ -30,9 +30,11 @@ Puma blanca  https://www.artstation.com/nathan_di_girolamo
 
 FOTOS DE FONDO DEL SLIDER 
 
-ADIDAS : https://www.artstation.com/artwork/kQD9dy
+ADIDAS : https://www.artstation.com/artwork/kQD9dy Creador: WIFFERIO https://www.artstation.com/wifferio23
 
+Nike: https://www.artstation.com/artwork/NGr4O5 Creador:  Nguyen Dong https://www.artstation.com/nguyendongdraws   / https://ar.pinterest.com/pin/107312403615211575/ Sponhardi _Sponhardi7 https://ar.pinterest.com/ericsponhardi/
 
+Puma : https://ar.pinterest.com/pin/602004675206117176/ Creador/extraido: MöNcHeN https://ar.pinterest.com/kkixsteinchenx/
 Cosas para mejorar., 
 
 
