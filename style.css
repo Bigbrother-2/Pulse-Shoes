@@ -201,30 +201,30 @@ header{
 /* IMAGEN DE FONDO DEL SLIDER */
 
 .addidas{
-    /* background-image: url(./assets/adidas/wallpaper.jpg); */
+    background-image: url(./assets/adidas/wallpaper.jpg);
     background-size: conver ;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .nike{
-    /* background-image: url(./assets/nike/wallpaperNike.jpg); */
+    background-image: url(./assets/nike/wallpapernikeVerdadera.jpg);
     background-size: cover ;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .reebook{
-    /* background-image: url(./assets/reebook/reebookWallpaper.jpg); */
+    background-image: url(./assets/reebook/posibleImagen3.jpg);
     background-size: contain ;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
 }
 
 .puma{
-    /* background-image: url(./assets/ouma/pumaWallpaper.jpg); */
+    background-image: url(./assets/ouma/fondoProbar.png);
     background-size: contain ;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
 }
 
@@ -338,6 +338,7 @@ header{
     font-weight: 400;
     font-style: normal;
     text-align: center;
+    text-shadow: 0 0 7px white;
 }
 
 
@@ -360,6 +361,7 @@ header{
     font-weight: 500; /*Del 400 al 900*/
     font-style: normal;
     font-size: 50px;
+    text-shadow: 0 0 7px white;
 }
 
 
@@ -375,7 +377,7 @@ header{
 
 
 .textoChico{
-    /* border: 1px solid salmon; */
+    border: 1px solid black;
 
     height: 100px;
     width: 500px;
@@ -383,6 +385,17 @@ header{
     top: 90%;
     transform: translateY(-90%);
     left: 50px;
+    background-color: rgba(139, 139, 139, 0.048);
+    backdrop-filter: blur(7px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 25px;
+}
+
+.textoChico p {
+    color:white;
+    
 }
 
 
@@ -554,6 +567,57 @@ header{
     object-fit: cover;
 }
 
+
+
+/* Flechas de contro del slider.  */
+
+
+main{
+    position: relative;
+
+}
+
+main .contenedorFlechas{
+    /* background-color: rgba(225, 211, 238, 0.733); */
+    
+    height: 650px;
+    width: 100%;
+    position: absolute;
+    margin-top: 100px;
+    z-index: 100000;
+    display: flex;
+    justify-content: space-between ;
+
+}
+
+main .flecha{
+    /* background-color: red; */
+
+    width: 90px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+
+main .flecha i {
+    background-color: rgba(10, 10, 10, 0.151);
+
+    font-size: 70px;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.247);
+    
+}
+
+main .flecha i:hover {
+    background-color: rgba(255, 251, 251, 0.274);
+    
+    
+}
 
 
 
@@ -1357,3 +1421,17 @@ header{
         margin: 0 5px;
     }
 }
+
+
+
+
+
+
+
+/* Mejoras para una actualizacion o por si hcaemos algo parecido.  */
+
+
+/*                                  
+                                                Slider 
+Mira, en el tema del slider podriamos haberlo mas facil. Porque en vez de ocultar todas podriamos haberlas superpuestas. Osea poner el position absulute y relative para superponerlas. Para que luego cuando se pasen solo tengamos que tocar en la parte de la logica una propiedad de css (style.transform) y listo. Ahora ya quedo asi, pero para la proxima podes tenerlo en cuenta.   
+*/

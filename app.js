@@ -47,80 +47,177 @@ function ocultarCosas(){
 
 // FUNCIONES PARA EL SLIDER 
 
+let diapositivas = document.querySelectorAll(".slider");
+let flechas = document.querySelectorAll(".flecha");
+let contadorDiapo = 0;
+let intervalo;
+let reiniciarTiempo;
 
-/* Vamos a explicar un poco el codigo para que cuando lo vea de vuelta no se me sea complicado entenderlo y ademas pueda estudiarlo de vuelta */
-
-
-/* Primero lo que debemos hacer es organizar los datos. Para esto tomammos a todas las diapositivas para tenerlas en el js como un nodeList y poder modificarlas, osea hacer la transicion de un lado para el otro.  */
-
-
-let diapositivas = document.querySelectorAll(".slider")
-
-
-
-
-let contadorDiapo = 0
-
-
-/*Segundo paso. Ahora trabajamos con css. Craamos clases de ocultas o activas para ir alternando entre las clases. Porque? porque tenemos que usar un forEach para ejecutar determinada funcion o determinadas ordenes para todas las diapos. Por esto, Cuando usamos el ciclo en el indice 0 usamos la clase activa y para los demas indices usamos la clase ocultas. Para no entrar en quilombos  */
-
-
-function mostrarDiapo ( ) {
-    setInterval(() => {
-
-
-        // Esto oculta todas las diapositivas
-        diapositivas.forEach(diapo=> diapo.classList.remove("activa"))
-
-
-        // Esta parte de aca se encarga de mostar la diapo que sigue. 3
-
-    
-
-        diapositivas[contadorDiapo].classList.add("activa")
-
-        // Esto es lo que cada que termine el setInterval incremente el contador para que en la proxima vuelta cambie la diapo
-        
-        contadorDiapo++
-        
-
-
-
-        // Esto la funcion que va a complir es que con el condicional evalue si el tamaño de las diapo es igual al contador se reinicie para que vuelva a cero y muestre la primera creando asi un bucle. 
-
-        if(contadorDiapo >= diapositivas.length){
-            contadorDiapo = 0
+// ✅ Función para iniciar el slider automático
+function iniciarSlider() {
+    clearInterval(intervalo); // Limpiamos intervalos previos para evitar acumulación
+    intervalo = setInterval(() => {
+        contadorDiapo++;
+        if (contadorDiapo >= diapositivas.length) {
+            contadorDiapo = 0;
         }
-
-        console.log(diapositivas[contadorDiapo].classList)
-
-    },3000)
-    
-    
+        mostrarDiapo();
+    }, 3000);
 }
 
+// ✅ Función para mostrar la diapositiva activa
+function mostrarDiapo() {
+    diapositivas.forEach(diapo => diapo.classList.remove("activa"));
+    diapositivas[contadorDiapo].classList.add("activa");
+}
 
-//  mostrarDiapo()
+// ✅ Función para reiniciar el slider después de 5s de inactividad
+function reinicioautomatico() {
+    clearTimeout(reiniciarTiempo);
+    reiniciarTiempo = setTimeout(() => {
+        iniciarSlider(); // Reactivamos el slider automático después de 5 segundos
+    }, 5000);
+}
+
+// ✅ Evento para las flechas (controla el slider manualmente)
+flechas.forEach(flecha => {
+    flecha.addEventListener("click", (evento) => {
+        clearInterval(intervalo); // Pausamos el slider automático
+
+        if (evento.currentTarget.classList.contains("izquierda")) {
+            contadorDiapo--; // Retrocede una imagen
+            if (contadorDiapo < 0) contadorDiapo = diapositivas.length - 1;
+        } else if (evento.currentTarget.classList.contains("derecha")) {
+            contadorDiapo++; // Avanza una imagen
+            if (contadorDiapo >= diapositivas.length) contadorDiapo = 0;
+        }
+
+        mostrarDiapo(); // Mostramos la diapositiva correcta
+        reinicioautomatico(); // Reactivamos el slider después de 5s
+    });
+});
+
+// ✅ Iniciar el slider automático al cargar la página
+iniciarSlider();
+
+
+
+// let diapositivas = document.querySelectorAll(".slider")
+
+// let contadorDiapo = 0
+
+// let intervalo;
+
+// function iniciarSlider(){
+//     clearInterval(intervalo) //Lo que hace esto es reiniciar el intervalo para que no se cree ninguna complicacion. 
+//     intervalo = setInterval(()=>{
+//         contadorDiapo++;
+//         if(contadorDiapo >= diapositivas.length) {
+//             contadorDiapo = 0;
+//         }
+//         mostrarDiapo()
+//     },3000)
+// }
+
+
+// // Funcion para mostrar las diapositivas de manera automatica 
+
+// function mostrarDiapo ( ) {
+//         diapositivas.forEach(diapo=> diapo.classList.remove("activa"))
+
+//         diapositivas[contadorDiapo].classList.add("activa")
+
+//         contadorDiapo++
+
+//         if(contadorDiapo >= diapositivas.length){
+//             contadorDiapo = 0
+//         }
+    
+// }
+
+// // Funcion para reiniciar el slider despues de 5 seg. que no se clickeo el slider. 
+// let reiniciarTiempo;
+
+// function reinicioautomatico() {
+//     clearTimeout(reiniciarTiempo); //Esto es lo que limpia el intervalo antes de iniciar cualquier otro. 
+
+//     reiniciarTiempo = setTimeout(() => {
+//         iniciarSlider(); //Esto es lo que dispara despus de 5seg para inicio automatico 
+//     }, 5000);
+// }
+
+
+// // Funcion para manejar las flechas para correrlo de manera manual.     |
+// let flechas = document.querySelectorAll(".flecha")
+
+// flechas.forEach(flecha=>{
+//     flecha.addEventListener("click", (evento)=>{
+//         clearInterval(intervalo) //Esto es para detener el intervalo cuando se hace click en las flechas. 
+//         if (evento.currentTarget.classList.contains("izquierda")) {
+//             contadorDiapo--; // Retrocede una imagen
+
+//             if (contadorDiapo < 0) contadorDiapo = diapositivas.length - 1;
+
+//         } else if (evento.currentTarget.classList.contains("derecha")) {
+//             contadorDiapo++; // Avanza una imagen
+
+//             if (contadorDiapo >= diapositivas.length) contadorDiapo = 0; //Esto hace que si esta en tu ultimo slider lo regresa al principio 
+//         }
+        
+//         mostrarDiapo()
+//         reinicioautomatico()
+//     })
+// })
+
+// iniciarSlider()
+
+
+// function pausarIntervalo(evento){
+//     if(evento.currentTarget.classList.contains("izquierda")){
+
+//         contadorDiapo--
+
+//         if (contadorDiapo < 0) {  
+//             contadorDiapo = diapositivas.length - 1;
+//         }
+
+//         diapositivas.forEach(diapo=> diapo.classList.remove("activa"))
+        
+//         diapositivas[contadorDiapo].classList.add("activa")
+        
+//         clearInterval(intervalo)
+
+
+//     } else if (evento.currentTarget.classList.contains("derecha")){
+
+//         contadorDiapo++ 
+
+//         if(contadorDiapo >= diapositivas.length){
+//             contadorDiapo = 0 
+//         }
+        
+//         diapositivas.forEach(diapo=> diapo.classList.remove("activa")) //Actualizamos. 
+        
+//         diapositivas[contadorDiapo].classList.add("activa")
+
+//         clearInterval(intervalo)
+//     }
+// }
 
 
 
 
+// flechas.forEach(flecha => {
+//     flecha.addEventListener("click", (evento) => {
+//         clearInterval(intervalo);
+//         mostrarDiapo(evento);
+//         reinicioautomatico(); 
+//     });
+// });
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// mostrarDiapo()
 
 
 
