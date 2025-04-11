@@ -88,141 +88,167 @@ Parte de cogido:(obiamente esta con explicaciones.)
 
 
 let diapositivas = document.querySelectorAll(".slider")
-
-
-
-
+let flechas = document.querySelectorAll(".flecha")
 let contadorDiapo = 0
+let reiniciarTiempo
+
 
 /*Esta variable global la ocupa la funcion de cancelar el intervalo momentaneamente, explacion mas abajo.  */
 
 let intervalo;
 
+/*
+    Ahora lo que hacemos es crear una funcion para que de el punta pie inicial para iniciar el slider. Pero no solamente va a hacer esto, si no que, cumple con una funcion de controlador, por llamarle asi, en donde se encarga de limiaro o reiniciar el intervalo para que no se cree ninguna complicacion ni haya otros intervalos ejecutandose en segundo plano alterando su funcion principal. 
+*/
 
-/*Segundo paso. Ahora trabajamos con css. Craamos clases de ocultas o activas para ir alternando entre las clases. Porque? porque tenemos que usar un forEach para ejecutar determinada funcion o determinadas ordenes para todas las diapos. Por esto, Cuando usamos el ciclo en el indice 0 usamos la clase activa y para los demas indices usamos la clase ocultas. Para no entrar en quilombos  */
+function iniciarSlider(){
+    clearInterval(intervalo) //Lo que hace esto es reiniciar el intervalo para que no se cree ninguna complicacion. 
+    intervalo = setInterval(()=>{
+        contadorDiapo++;
+        if(contadorDiapo >= diapositivas.length) {
+            contadorDiapo = 0;
+        }
+        mostrarDiapo()
+    },3000)
+}
+
+
+/* Tercer paso. Ahora trabajamos con css. Craamos clases de ocultas o activas para ir alternando entre las clases. Porque? porque tenemos que usar un forEach para ejecutar determinada funcion o determinadas ordenes para todas las diapos. Por esto, Cuando usamos el ciclo en el indice 0 usamos la clase activa y para los demas indices usamos la clase ocultas. Para no entrar en quilombos  */
 
 
 function mostrarDiapo ( ) {
-    intervalo = setInterval(() => {
-
 
         // Esto oculta todas las diapositivas
         diapositivas.forEach(diapo=> diapo.classList.remove("activa"))
 
-
         // Esta parte de aca se encarga de mostar la diapo que sigue. 3
 
-    
-
-        diapositivas[contadorDiapo].classList.add("activa")
-
-        // Esto es lo que cada que termine el setInterval incremente el contador para que en la proxima vuelta cambie la diapo
-        
-        contadorDiapo++
-        
-
-
-
-        // Esto la funcion que va a complir es que con el condicional evalue si el tamaño de las diapo es igual al contador se reinicie para que vuelva a cero y muestre la primera creando asi un bucle. 
-
-        if(contadorDiapo >= diapositivas.length){
-            contadorDiapo = 0
-        }
-
-
-    },3000)
-    
-    
+        diapositivas[contadorDiapo].classList.add("activa") 
 }
 
-// ExplicacioooooooOn!
+/*
 
-/* Mira vamos de a poco. Tenemos que ver como podemos hacer para detener el intervalo cuando el usuario haga click en cualquiera de las 2 flechas. Para esto llamamos a un listener en la funcion.  */
+    Sigue hacer la funcion para reiniciar el slider de manera automatica cuando no se haga click en el slider durante 5seg
 
-
-// Llamamos a las flechas para poder escuchar el evento 
-
-let flechas = document.querySelectorAll(".flecha")
-
-
-
-/* Aca esta la parte mas importante de la funcion. Porque en este momento es cuando salta el evento cuando se hace click en cualquiera de las 2 flechas o mejor explicado cuando se hace un click en cualquier etiqueta html que tenga la clase ".contenedorFlechas". 
-    Una vez clickeado, llama a una funcion que va a detener el setInterval de manera momentanea y que cambie el control de paso automatico a paso manual del slider.
 */
+
+function reinicioautomatico() {
+    clearTimeout(reiniciarTiempo); //Esto es lo que limpia el intervalo antes de iniciar cualquier otro. 
+
+    reiniciarTiempo = setTimeout(() => {
+        iniciarSlider(); //Esto es lo que dispara despus de 5seg para inicio automatico 
+    }, 5000);
+}
+
+/*
+
+Y por ultimo falta manejar el caso para el paso manual del slider. Para ello, obviamente tenemos que colocar un escuchador de evento en las flechas y segun donde se clickee avance o retroseda. Para ello, una vez escuchado el evento se juzga cual es la que se clickeo maneje la variable contadorDiapo para retoceder o avanzar en el slider, para finalmente ejecute la funcion mostrarDiapo, por ende esta funcion se actualiza y como la funcion IniciarSlider esta en llamada constante, cuando se ejecuta el setInterval va a mostar otra cara del Slider, asi mostrando lo que quiere el Usuario. Finalmente, luego de haber ejecutado mostrarDiapo se ejecuta reinicioAutomatico. En donde limpia el intervalo que dice que si no se hace click en 5seg se ejecute iniciarSlider lo que comezaria el ciclo de manera automatica 
+
+*/
+
+
 flechas.forEach(flecha=>{
     flecha.addEventListener("click", (evento)=>{
-        pausarIntervalo(evento)
-        /*explicacion rapida. Al colocar esta miniFuncion, lo que hacemos es pasar toda la informacion que recauda el evento como parametro a la funcion pausarIntervalo para que podamos saber cual es la flecha que se presiono. */
+        clearInterval(intervalo) //Esto es para detener el intervalo cuando se hace click en las flechas. 
+        if (evento.currentTarget.classList.contains("izquierda")) {
+            contadorDiapo--; // Retrocede una imagen
+
+            if (contadorDiapo < 0) contadorDiapo = diapositivas.length - 1; //Esto significa que se traslade al utlimo
+
+        } else if (evento.currentTarget.classList.contains("derecha")) {
+            contadorDiapo++; // Avanza una imagen
+
+            if (contadorDiapo >= diapositivas.length) contadorDiapo = 0; //Esto hace que si esta en tu ultimo slider lo regresa al principio 
+        }
+        
+        mostrarDiapo()
+        reinicioautomatico()
     })
 })
 
-// Esta funcion es la encargada de pausar el intervalo momentaneamente y de controlar el slider de manera manual. Para ello tenemos que acceder a la funcion de mostrarDiapo y cancelar el intervalo. Luego agregar controles manuales y controlar constantemente si no se hace click durante 5s vuelva a pasarse de manera automatica. 
 
 
-function pausarIntervalo(evento){
-    // Primero. Por logica si apretamos en una flecha tenemos que cambiar el slider para donde quiera el usuario. Para esto, cuando escuchamos debemos obtener informacion de cual es la flecha fue la que se apreto. Para ello debemos obtenerlo al momento cuando se clickea y pasarlo como parametro a esta funcion. 
-    /* 
-                                                IMPORTANTE!!!!!!!!!!!!!!!!!!!!!!! 
-        aprendiste que el target te devuelve el elemento mas interno al cual hiciste click. Si queremos saber en donde se hizo click pero referenciando al contenedor padre digamos usamos: currentTarget.
-    */
-    if(evento.currentTarget.classList.contains("izquierda")){
-        // console.log("presionaste la flecha izquierda")
-
-        contadorDiapo-- //Primero restamos. 
-
-        if (contadorDiapo < 0) { // Controlamos los límites antes de aplicar cambios. Si es el primero lo mandamos al ultimo. 
-            contadorDiapo = diapositivas.length - 1;
-        }
-
-        diapositivas.forEach(diapo=> diapo.classList.remove("activa"))
-        
-        diapositivas[contadorDiapo].classList.add("activa")
-        
-        clearInterval(intervalo)
-
-
-    } else if (evento.currentTarget.classList.contains("derecha")){
-        // console.log("apretaste la flecha derecha")
-
-        contadorDiapo++ //Primero restamos. 
-
-        if(contadorDiapo >= diapositivas.length){
-            contadorDiapo = 0  //Contralmos limites
-        }
-        
-        diapositivas.forEach(diapo=> diapo.classList.remove("activa")) //Actualizamos. 
-        
-        diapositivas[contadorDiapo].classList.add("activa")
-
-        clearInterval(intervalo)
-    }
-    //  Segundo debemos cancelar el intervalo. Como lo hacemos? 
-    /*Explicacion de la cancelacion del intervalo. 
-        Sabemos que tenemos que acceder a la funcion de mostrarDiapo y ahi eliminar el intervalo. Para esto, debemos almacenar el identificador en una variable global para que luego cuando usemos el clearInterval(identificador) javascript sepa que intervalo eliminar. Por eso, cuando hacemos el intervalo lo "almacenamos" en una variable global. Pero, no se guarda la info, si no que guardamos el identificador.
-    */ 
-    
-}
-
-let reiniciarTiempo;
-
-function reinicioautomatico() {
-    clearTimeout(reiniciarTiempo); // Limpiamos cualquier timeout activo
-
-    reiniciarTiempo = setTimeout(() => {
-        clearInterval(intervalo); // Nos aseguramos de limpiar el intervalo anterior
-        intervalo = setInterval(mostrarDiapo, 3000); // Reactivamos el slider automático
-    }, 5000); // Esperamos 5 segundos de inactividad
-}
-
-// Dentro del manejador de eventos de las flechas
-flechas.forEach(flecha => {
-    flecha.addEventListener("click", (evento) => {
-        clearInterval(intervalo); // Pausamos el slider automático
-        mostrarDiapo(evento); // Llamamos a la función que cambia la diapositiva
-        reinicioautomatico(); // Programamos la reactivación del slider
-    });
-});
+                            Segunda parte. Slider Con descuentos y Ofertas
 
 
 
-mostrarDiapo()
+Puma: 
+
+Modelo en la imagen de fondo normal
+
+https://www.lasrosas.com.ar/portal/puma-lanza-kyron-con-la-figura-de-winnie-harlow/
+
+Nombre de la zapatilla: Kyron
+
+
+Foto del hover
+
+https://www.lasrosas.com.ar/portal/puma-lanza-kyron-con-la-figura-de-winnie-harlow/
+
+
+
+
+
+
+
+
+
+
+Adidas:
+
+Modelo en la imagen de fondo 
+
+https://www.telva.com/fitness/2018/04/06/5ac72ab0468aebf4628b4613.html
+
+Nombre de la zapatilla: Arkyn 
+
+foto del hover 
+
+https://www.runnea.com/sneakers/adidas/arkyn/1001449/
+
+
+
+
+
+
+
+
+
+
+Nike:
+
+Modelo en la imagen de fondo
+
+https://www.barcin.com/nike-blazer-mid-77-jumbo-swoosh-erkek-spor-ayakkabi-beyaz-beyaz-acik-kirmizi-2/
+
+
+Nombre de la zapatilla : Nike Blazer Mid '77 Jumbo Swoosh
+
+foto del hover
+
+https://www.barcin.com/nike-blazer-mid-77-jumbo-swoosh-erkek-spor-ayakkabi-beyaz-beyaz-acik-kirmizi-2/
+
+
+
+
+
+
+
+
+
+
+Reebok:
+
+Modelo en la imagen de fondo
+
+https://www.zalando.es/reebok-classic-club-c-85-zapatillas-re015b00g-a12.html
+
+Nombre de la zapatilla: Reebok classic CLUB C 85
+
+Foto del hover
+
+https://www.zalando.es/reebok-classic-club-c-85-zapatillas-re015b00g-a12.html
+
+
+
+

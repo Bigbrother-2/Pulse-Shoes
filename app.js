@@ -47,178 +47,184 @@ function ocultarCosas(){
 
 // FUNCIONES PARA EL SLIDER 
 
-let diapositivas = document.querySelectorAll(".slider");
-let flechas = document.querySelectorAll(".flecha");
-let contadorDiapo = 0;
-let intervalo;
-let reiniciarTiempo;
 
-// ✅ Función para iniciar el slider automático
-function iniciarSlider() {
-    clearInterval(intervalo); // Limpiamos intervalos previos para evitar acumulación
-    intervalo = setInterval(() => {
+
+
+
+let diapositivas = document.querySelectorAll(".slider")
+
+let contadorDiapo = 0
+
+let intervalo;
+
+function iniciarSlider(){
+    clearInterval(intervalo) 
+    intervalo = setInterval(()=>{
         contadorDiapo++;
-        if (contadorDiapo >= diapositivas.length) {
+        if(contadorDiapo >= diapositivas.length) {
             contadorDiapo = 0;
         }
-        mostrarDiapo();
-    }, 3000);
+        mostrarDiapo()
+    },3000)
 }
 
-// ✅ Función para mostrar la diapositiva activa
-function mostrarDiapo() {
-    diapositivas.forEach(diapo => diapo.classList.remove("activa"));
-    diapositivas[contadorDiapo].classList.add("activa");
+
+// Funcion para mostrar las diapositivas de manera automatica 
+
+function mostrarDiapo ( ) {
+        diapositivas.forEach(diapo=> diapo.classList.remove("activa"))
+
+        diapositivas[contadorDiapo].classList.add("activa")
+
 }
 
-// ✅ Función para reiniciar el slider después de 5s de inactividad
+// Funcion para reiniciar el slider despues de 5 seg. que no se clickeo el slider. 
+let reiniciarTiempo;
+
 function reinicioautomatico() {
-    clearTimeout(reiniciarTiempo);
+    clearTimeout(reiniciarTiempo); 
+
     reiniciarTiempo = setTimeout(() => {
-        iniciarSlider(); // Reactivamos el slider automático después de 5 segundos
+        iniciarSlider();
     }, 5000);
 }
 
-// ✅ Evento para las flechas (controla el slider manualmente)
-flechas.forEach(flecha => {
-    flecha.addEventListener("click", (evento) => {
-        clearInterval(intervalo); // Pausamos el slider automático
 
+// Funcion para manejar las flechas para correrlo de manera manual.     |
+let flechas = document.querySelectorAll(".flecha")
+
+flechas.forEach(flecha=>{
+    flecha.addEventListener("click", (evento)=>{
+        clearInterval(intervalo) 
         if (evento.currentTarget.classList.contains("izquierda")) {
-            contadorDiapo--; // Retrocede una imagen
-            if (contadorDiapo < 0) contadorDiapo = diapositivas.length - 1;
+            contadorDiapo--; 
+
+            if (contadorDiapo < 0) contadorDiapo = diapositivas.length - 1; 
+
         } else if (evento.currentTarget.classList.contains("derecha")) {
-            contadorDiapo++; // Avanza una imagen
-            if (contadorDiapo >= diapositivas.length) contadorDiapo = 0;
+            contadorDiapo++; 
+
+            if (contadorDiapo >= diapositivas.length) contadorDiapo = 0;  
         }
-
-        mostrarDiapo(); // Mostramos la diapositiva correcta
-        reinicioautomatico(); // Reactivamos el slider después de 5s
-    });
-});
-
-// ✅ Iniciar el slider automático al cargar la página
-iniciarSlider();
-
-
-
-// let diapositivas = document.querySelectorAll(".slider")
-
-// let contadorDiapo = 0
-
-// let intervalo;
-
-// function iniciarSlider(){
-//     clearInterval(intervalo) //Lo que hace esto es reiniciar el intervalo para que no se cree ninguna complicacion. 
-//     intervalo = setInterval(()=>{
-//         contadorDiapo++;
-//         if(contadorDiapo >= diapositivas.length) {
-//             contadorDiapo = 0;
-//         }
-//         mostrarDiapo()
-//     },3000)
-// }
-
-
-// // Funcion para mostrar las diapositivas de manera automatica 
-
-// function mostrarDiapo ( ) {
-//         diapositivas.forEach(diapo=> diapo.classList.remove("activa"))
-
-//         diapositivas[contadorDiapo].classList.add("activa")
-
-//         contadorDiapo++
-
-//         if(contadorDiapo >= diapositivas.length){
-//             contadorDiapo = 0
-//         }
-    
-// }
-
-// // Funcion para reiniciar el slider despues de 5 seg. que no se clickeo el slider. 
-// let reiniciarTiempo;
-
-// function reinicioautomatico() {
-//     clearTimeout(reiniciarTiempo); //Esto es lo que limpia el intervalo antes de iniciar cualquier otro. 
-
-//     reiniciarTiempo = setTimeout(() => {
-//         iniciarSlider(); //Esto es lo que dispara despus de 5seg para inicio automatico 
-//     }, 5000);
-// }
-
-
-// // Funcion para manejar las flechas para correrlo de manera manual.     |
-// let flechas = document.querySelectorAll(".flecha")
-
-// flechas.forEach(flecha=>{
-//     flecha.addEventListener("click", (evento)=>{
-//         clearInterval(intervalo) //Esto es para detener el intervalo cuando se hace click en las flechas. 
-//         if (evento.currentTarget.classList.contains("izquierda")) {
-//             contadorDiapo--; // Retrocede una imagen
-
-//             if (contadorDiapo < 0) contadorDiapo = diapositivas.length - 1;
-
-//         } else if (evento.currentTarget.classList.contains("derecha")) {
-//             contadorDiapo++; // Avanza una imagen
-
-//             if (contadorDiapo >= diapositivas.length) contadorDiapo = 0; //Esto hace que si esta en tu ultimo slider lo regresa al principio 
-//         }
         
-//         mostrarDiapo()
-//         reinicioautomatico()
-//     })
-// })
+        mostrarDiapo()
+        reinicioautomatico()
+    })
+})
 
 // iniciarSlider()
 
 
-// function pausarIntervalo(evento){
-//     if(evento.currentTarget.classList.contains("izquierda")){
 
-//         contadorDiapo--
+// Funciones para Novedades y ofertas.
 
-//         if (contadorDiapo < 0) {  
-//             contadorDiapo = diapositivas.length - 1;
-//         }
+// Explicacioooooon. 
 
-//         diapositivas.forEach(diapo=> diapo.classList.remove("activa"))
-        
-//         diapositivas[contadorDiapo].classList.add("activa")
-        
-//         clearInterval(intervalo)
+/* La logica de este slider es. Cuando yo coloque el mouse cambie a una imagen pequeña con el logo de la marca. Luego cuando haga click cambie la imagen de fondo y se agrande de anchura al 100%. Para esto el primer paso es traer las etiquetas html claves para ir formando la logica. En este caso tenemos los contenedores individuales y la flecha.  */
 
+let contenedorNovedades = document.querySelectorAll(".sliderNovedades")
 
-//     } else if (evento.currentTarget.classList.contains("derecha")){
+let botonRegresar = document.querySelectorAll(".volverNovedades")
 
-//         contadorDiapo++ 
+contenedorNovedades.forEach(click=>{
+    click.addEventListener("click", agrandar)
+    /*Lo que se hace aca es usar un forEach para recorrer a todos los divs individualmente y colocar un listener para el click y llame a la funcion de agrandar.  */
+})
 
-//         if(contadorDiapo >= diapositivas.length){
-//             contadorDiapo = 0 
-//         }
-        
-//         diapositivas.forEach(diapo=> diapo.classList.remove("activa")) //Actualizamos. 
-        
-//         diapositivas[contadorDiapo].classList.add("activa")
+function agrandar(e){
+    e.currentTarget.classList.add("widthAl100")
 
-//         clearInterval(intervalo)
-//     }
-// }
+    /* Esta funcion es la encargada de agrandar su anchura al 100. Como lo hace? 
+    Sabemos que un addEventListener guarda informacion de manera automatica, como donde se hizo click, la hora, si fue un click o entro el mouse y demas eventos. Entonces, usamos un parametro, la cual es e. e significa la info que manda de manera automatica JS. Entonces, con un currentTarget.classList.add agregamos la clase para que se agrande de manera automatica. 
+    */
+}
 
+// Manejo del evento para volver hacia atras. 
 
+botonRegresar.forEach(click=>{
+    click.addEventListener("click", atras)
+    /*Hacemos lo mismo que en el forEach anterior pero llamamos atras */
+})
 
+function atras(){
 
-// flechas.forEach(flecha => {
-//     flecha.addEventListener("click", (evento) => {
-//         clearInterval(intervalo);
-//         mostrarDiapo(evento);
-//         reinicioautomatico(); 
-//     });
-// });
+    /* Esta situacion es algo mas entretenido. Porque nosotros escuchamos un evento de una etiqueta html, pero modificamos otra etiqueta totalmente diferente. Por ello, que hacemos, traemos a todos los divs que tengan widthAl100 para que luego si estos estan "activos" remueva esta clase dejando asi su anchura original. Esto esta bueno porque no analiza todos los divs si no que trae al que tenga la clase, entonces si no hay ninguna clase por mas que apretemos la flecha no pasaria nada, dejandola sin efectos ni posibles bugs */
+    let divActivo = document.querySelector(".sliderNovedades.widthAl100")
+    
+    if(divActivo){
+        divActivo.classList.remove("widthAl100")
+    }
+}
 
 
 
-// mostrarDiapo()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function saludo(){
+    console.log("Funciona")
+}
 
 
 

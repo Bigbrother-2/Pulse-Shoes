@@ -619,8 +619,171 @@ main .flecha i:hover {
     
 }
 
+/* Slider de Novedades y ofertas */
+
+/*
+    Tema relacionado con el z-index
+
+    Usado en:
+
+    .contenedorNovedades valor: 1
+
+    .volverNovedades valor : 10
+*/
+
+.NovedadesOfertas{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
 
 
+.contenedorNovedades{
+    border: 1px solid black;
+
+    width: 100%;
+    height: 500px;
+    display: flex;
+    margin-bottom: 500px ;
+    position: relative;
+    z-index:1
+}
+
+.contenedorNovedades .sliderNovedades{
+    /* border: 1px solid red; */
+
+    width: 0%;
+    flex-grow: 1;
+    object-fit: cover;
+    transition: width 0.5s ease;
+
+    /* Solucion para la transicion */
+
+    min-width: 1px;
+    overflow: hidden;
+    display: block;
+    box-sizing: border-box;
+}
+
+
+/* Tratamiento para imagenes de fondo normal, hover y transformacion  */
+
+/* Normal  */
+
+.adidasNovedades{
+    background-image: url(./assets/adidas/ModeloAdidasSlider.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: center; */
+}
+
+.nikeNovedades{
+    background-image: url(./assets/nike/ModeloNikeSlider.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.pumaNovedades{
+    background-image: url(./assets/ouma/ModeloPumaSlider.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.rebookNovedades{
+    background-image: url(./assets/reebook/ModeloReebokSlider.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* hover */
+
+
+
+.adidasNovedades:hover{
+    background-image: url(./assets/adidas/ModeloAdidasSlider.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: center; */
+}
+
+.nikeNovedades:hover{
+    background-image: url(./assets/nike/ModeloNikeSlider.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.pumaNovedades:hover{
+    background-image: url(./assets/ouma/ModeloPumaSlider.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.rebookNovedades:hover{
+    background-image: url(./assets/reebook/ModeloReebokSlider.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+
+
+
+
+
+
+/* Tratamiento de la flecha */
+
+section.contenedorNovedades > i.volverNovedades{
+    
+    display: inline-block ;
+    width: auto ;
+    height: auto ;
+    font-size: 50px ;
+    color: rgba(0, 0, 0, 0.7) ;
+    z-index: 999 ;
+    pointer-events: auto ;
+    opacity: 1 ;
+    visibility: visible ;
+    position: absolute ;
+    left: 30px;
+    top: 10px;
+    
+}
+
+/* Para el ensanchamiento del slider al 100 */
+
+.widthAl100{
+    width: 100% !important;
+}
+
+
+
+
+
+/*
+Truco de como lo vamos a hacer. 
+Las imagenes las voy a tratar como un backjground. para el efecto de que cuadno se coloque el mouse pase ensima salte otra iagen desde abajos si se puede con el fondo un toque mas negro o con el color predominante de la imagen.  con el boton de ver mas. Osea que el boton tambien aparezca cuando pase por arriba. 
+Obviamente, cuando ponga en ver mas, va a ocupar toda la pantalla, Por ende tengo que crear una funcion que me regrese todo a la normalidad. Osea para volver para atras. 
+*/
+
+/* .contenedorNovedades img{
+    width: 0;
+    flex-grow: 1;
+    object-fit: cover;
+    transition: .5 ease;
+    max-width: 500px;
+}
+
+
+
+.contenedorNovedades img:hover{
+    cursor:crosshair;
+    width: 100%;
+} */
 
 
 
