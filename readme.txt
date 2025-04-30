@@ -58,6 +58,17 @@ Puma recortado del Twitter: https://x.com/LTAEspanol/status/1488297374111961088
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 Cosas para mejora
 
 
@@ -168,6 +179,12 @@ flechas.forEach(flecha=>{
 
 
 
+
+
+
+
+
+
                             Segunda parte. Slider Con descuentos y Ofertas
 
 
@@ -181,9 +198,14 @@ https://www.lasrosas.com.ar/portal/puma-lanza-kyron-con-la-figura-de-winnie-harl
 Nombre de la zapatilla: Kyron
 
 
-Foto del hover
-
+Foto de la zapatilla:
 https://www.lasrosas.com.ar/portal/puma-lanza-kyron-con-la-figura-de-winnie-harlow/
+
+
+Foto logo del hover:
+https://1000marcas.net/puma-logo/
+
+
 
 
 
@@ -202,9 +224,11 @@ https://www.telva.com/fitness/2018/04/06/5ac72ab0468aebf4628b4613.html
 
 Nombre de la zapatilla: Arkyn 
 
-foto del hover 
-
+foto de la zapatilla
 https://www.runnea.com/sneakers/adidas/arkyn/1001449/
+
+Foto logo del hover:
+https://graffica.info/cual-es-la-historia-y-evolucion-del-logo-de-adidas/
 
 
 
@@ -224,9 +248,12 @@ https://www.barcin.com/nike-blazer-mid-77-jumbo-swoosh-erkek-spor-ayakkabi-beyaz
 
 Nombre de la zapatilla : Nike Blazer Mid '77 Jumbo Swoosh
 
-foto del hover
-
+foto de la zapatilla
 https://www.barcin.com/nike-blazer-mid-77-jumbo-swoosh-erkek-spor-ayakkabi-beyaz-beyaz-acik-kirmizi-2/
+
+Foto logo del hover:
+https://1000marcas.net/logo-nike/
+
 
 
 
@@ -245,9 +272,11 @@ https://www.zalando.es/reebok-classic-club-c-85-zapatillas-re015b00g-a12.html
 
 Nombre de la zapatilla: Reebok classic CLUB C 85
 
-Foto del hover
-
+Foto de la zapatilla
 https://www.zalando.es/reebok-classic-club-c-85-zapatillas-re015b00g-a12.html
+
+Foto logo del hover:
+https://www.citypng.com/photo/25813/reebok-black-logo-hd-png
 
 
 
