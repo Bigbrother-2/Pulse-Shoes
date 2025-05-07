@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing:border-box;
     color: black;
     text-decoration: none;
     
@@ -14,14 +14,24 @@
     font-family: "Gloria Hallelujah", cursive;
     font-weight: 400;
     font-style: normal;
-} */
+}
 
 
-/* .badeen-display-regular {
+.badeen-display-regular {
     font-family: "Badeen Display", system-ui;
     font-weight: 400;
     font-style: normal;
-} */
+} 
+    
+.lugrasimo-regular {
+    font-family: "Lugrasimo", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+*/
 
 
 header{
@@ -629,6 +639,8 @@ main .flecha i:hover {
     .contenedorNovedades valor: 1
 
     .volverNovedades valor : 10
+
+    .nombreZapatillasNovedades: 10
 */
 
 .NovedadesOfertas{
@@ -663,6 +675,7 @@ main .flecha i:hover {
     display: block;
     box-sizing: border-box;
     position: relative;
+
 }
 
 
@@ -712,10 +725,144 @@ main .flecha i:hover {
     bottom: 0;
 } */
 
+/* Parte de la caja adentro.  */
+
+.contenedorNovedadesInSide{
+    background-image: url(./assets/adidas/ModeloAdidasSlider.png);
+    background-size: contain ;
+    background-repeat: repeat;
+    background-position: center;
+
+    width: 100%;
+    height: 100%;
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.nombreZapatillaNovedades{
+
+    width: 15%;
+    height: 100%;
+    /* position: absolute; */
+    z-index: 10;
+    margin-left: 20px;
+    border: 2px solid black;
+    backdrop-filter: blur(10px); /* Desenfoque del fondo */
+    background-color: rgba(63, 63, 63, 0.363);/** Color translúcido*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-orientation:upright;
+    writing-mode: vertical-lr;
+}
+
+/* Nombre de la zapatilla */
+
+.nombreZapatillaNovedades> p{
+    font-family: "Lugrasimo", cursive;
+    font-weight: 400;
+    font-style:normal;
+    font-size: 30px;
+}
+
+.contenedorNovedadesFigura{
+    /* background-color: azure; */
+
+    width: 70%;
+    height: 100%;
+    /* position: absolute; */
+    position: relative;
+    backdrop-filter: blur(10px); /* Desenfoque del fondo */
+    background-color: rgb(204, 96, 96);/** Color translúcido*/
+    border-radius: 90px 0px 0px 90px;
+}
+
+.CuadroHorizontal{
+    /* background-color: rgb(161, 233, 139); */
+    
+    width: 445px;
+    height: 100%;
+    position: absolute;
+
+    border-radius: 90px 0px 90px 90px;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-top: 2px solid black; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*La imagen dentro de ella.*/
+.CuadroHorizontal > .modeloSinFondo{
+    height:100%;
+    width: auto;
+    object-fit: contain;
+    
+}
 
 
 
+.CuadroVerticalArriba{
+    /* background-color: rgb(139, 214, 233); */
 
+    width: 430px;
+    height: 50%;
+    right: -1px;
+    transform: translateX(1px);
+    position: absolute;
+
+    border-radius: 0px 90px 90px 0px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    display: flex;
+    justify-content: center;
+    
+}
+
+/*La imagen dentro de ella. */
+
+.CuadroVerticalArriba > .zapatillaSliderSinFondo{
+    height:100%;
+    width: auto;
+    object-fit: contain;
+    
+}
+
+
+
+.CuadroVeritcalAbajo{
+    /* background-color: rgb(139, 141, 233); */
+
+    width: 430px;
+    height: 51%;
+    bottom: -1px;
+    transform: translateY(1px);
+    right: -1px;
+    transform: translateX(1px);
+    position: absolute;
+    border-radius: 90px 90px 90px 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    
+}
+
+.CuadroVerticalAbajoInSide{
+    /* background-color: rgb(174, 0, 255);       */
+
+    width: 87%;
+    height: 80%;
+    border-radius: 90px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*La imagen dentro de ella. */
 
 
 
