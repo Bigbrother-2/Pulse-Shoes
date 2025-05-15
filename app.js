@@ -126,18 +126,29 @@ let contenedorNovedades = document.querySelectorAll(".sliderNovedades")
 
 let botonRegresar = document.querySelectorAll(".volverNovedades")
 
+let contenedorAl100 = document.getElementsByClassName("contenedorPadreInSide")
+
 contenedorNovedades.forEach(click=>{
     click.addEventListener("click", agrandar)
     /*Lo que se hace aca es usar un forEach para recorrer a todos los divs individualmente y colocar un listener para el click y llame a la funcion de agrandar.  */
 })
 
 function agrandar(e){
-    e.currentTarget.classList.add("widthAl100")
+    let divClickeado =  e.currentTarget
+
+    divClickeado.classList.add("widthAl100")
 
     /* Esta funcion es la encargada de agrandar su anchura al 100. Como lo hace? 
     Sabemos que un addEventListener guarda informacion de manera automatica, como donde se hizo click, la hora, si fue un click o entro el mouse y demas eventos. Entonces, usamos un parametro, la cual es e. e significa la info que manda de manera automatica JS. Entonces, con un currentTarget.classList.add agregamos la clase para que se agrande de manera automatica. 
     */
+
+    // Aca vamos a usar esta funcion para colocar o manejar el evento que pasa cuando se agranda. Es decir que aca vamos a mostrar el contenedor que tiene la muestra de la zapatilla. 
+    let vistaGeneral = divClickeado.querySelector(".contenedorOutSide")
+    vistaGeneral.style.display = "none"
+    let vistaInterior = divClickeado.querySelector(".contedorPadreInSide")
+    vistaInterior.style.display = "block"
 }
+
 
 // Manejo del evento para volver hacia atras. 
 
@@ -154,6 +165,12 @@ function atras(){
     if(divActivo){
         divActivo.classList.remove("widthAl100")
     }
+
+    let vistaGeneral = divActivo.querySelector(".contenedorOutSide")
+    vistaGeneral.style.display = "block"
+
+    let vistaInterna = divActivo.querySelector(".contedorPadreInSide")
+    vistaInterna.style.display = "none"
 }
 
 

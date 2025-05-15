@@ -689,6 +689,11 @@ main .flecha i:hover {
 
 /* Tratamiento de las imagenes de las modelos */
 
+.contenedorOutSide{
+    display: block;
+    transition: 0.5 ease-in;
+}
+
 .modeloSlider{
     width: 100%;
     height: 100%;
@@ -774,6 +779,8 @@ main .flecha i:hover {
     background-size:contain;
     width: 100%;
     height: 100%;
+    display: none;    /*Esto es lo que controla que se muestre o no. */
+    transition: all 0.5 ease;
 }
 
 /* Caja contenedora del slider */
@@ -788,7 +795,7 @@ main .flecha i:hover {
 
 /* Caja del centro de la mitad */
 .cajaCentro{
-    background-color: rgb(98, 182, 171);
+    background-color: #62b6ab;
 
     height: 100%;
     width: 400px;
@@ -802,7 +809,7 @@ main .flecha i:hover {
 
 /* Caja donde esta ubicada la zapatilla */
 
-.cajaNombreZapatilla{
+.cajaNombreZapatillaMarca{
     /* background-color: red; */
     height: 300px;
     width: 80%;
@@ -815,7 +822,7 @@ main .flecha i:hover {
     align-items: center;
 }
 
-.nombreZapatilla{
+.nombreMarcaZapatilla{
     font-family: "Bebas Neue", Arial;
     font-weight: 400;
     font-style: normal;
@@ -872,9 +879,72 @@ main .flecha i:hover {
 }
 
 
+/* Seccion del nombre de la zapatilla.  */
+
+
+.cajaNombreZapatilla{
+    /* background-color: red; */
+    position: absolute; /*Con respecto a contenedorInSide*/
+    height: 100px;
+    width: 200px;
+    top: 99%;
+    left: 2%;
+    transform: translate(-5%,-99%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nombreZapatilla{
+    font-size:40px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+/* Seccion del boton comprar de la zapatilla*/
+
+.CajaComprarSlider{
+    /* background-color: rgba(0, 255, 242, 0.411); */
+    width: 100px;
+    height: 50px;
+    position: absolute; /*Con respecto a contendorInSide */
+    left: 95%;
+    top: 95%;
+    transform: translate(-95%,-95%);
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    
+}
+
+.botonComprarSlider{
+    height: 70px;
+    width: auto;
+    object-fit: cover;
+    transform: rotate(-5deg);
+}
 
 
 
+
+
+/* Seccion del descuento  */
+
+.cajaDescuentoSlider{
+    /* background-color: red; */
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 95%;
+    top: 4%;
+    transform: translate(-95%,-4%);
+}
+
+.imgenDescuentoSlider{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
 
 
 
@@ -904,8 +974,6 @@ section.contenedorNovedades > i.volverNovedades{
 .widthAl100{
     width: 100% !important;
 }
-
-
 
 
 
