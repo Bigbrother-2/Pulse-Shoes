@@ -139,10 +139,10 @@ function agrandar(e){
     divClickeado.classList.add("widthAl100")
 
     /* Esta funcion es la encargada de agrandar su anchura al 100. Como lo hace? 
-    Sabemos que un addEventListener guarda informacion de manera automatica, como donde se hizo click, la hora, si fue un click o entro el mouse y demas eventos. Entonces, usamos un parametro, la cual es e. e significa la info que manda de manera automatica JS. Entonces, con un currentTarget.classList.add agregamos la clase para que se agrande de manera automatica. 
+    Sabemos que un addEventListener guarda informacion de manera automatica, como donde se hizo click, la hora, si fue un click o entro el mouse y demas eventos. Entonces, usamos un parametro, la cual es e. e significa la info que manda de manera automatica JS. Entonces, con un currentTarget extraemos la info y luego con el classList.add agregamos la clase para que se agrande de manera automatica. 
     */
 
-    // Aca vamos a usar esta funcion para colocar o manejar el evento que pasa cuando se agranda. Es decir que aca vamos a mostrar el contenedor que tiene la muestra de la zapatilla. 
+    // Aca vamos a usar esta funcion para colocar o manejar el evento que pasa cuando se agranda. Es decir que aca vamos a mostrar el contenedor que tiene la muestra de la zapatilla. Para ello, usamos tambien la variable anterior. Entonces lo que hace con el querySelector traemos a la primera etiqueta que encuentre, y como clicleamos a solamente uno, el que traiga es el clickeado por ello, en la vista general le colocamos display none para ocultarla y viceversa con el vistaInterior para mostrarla.  
     let vistaGeneral = divClickeado.querySelector(".contenedorOutSide")
     vistaGeneral.style.display = "none"
     let vistaInterior = divClickeado.querySelector(".contedorPadreInSide")
@@ -166,6 +166,8 @@ function atras(){
         divActivo.classList.remove("widthAl100")
     }
 
+
+    /*Esta madre hace lo mismo que en la funcion agrandar. Pero al reves. Oculta la vista interna y muestra la vistaGeneral. */
     let vistaGeneral = divActivo.querySelector(".contenedorOutSide")
     vistaGeneral.style.display = "block"
 

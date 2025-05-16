@@ -774,14 +774,34 @@ main .flecha i:hover {
 /* Contenedor Padre del slider de las oferta */
 
 .contedorPadreInSide{
-    background-image: url(./assets/adidas/ModeloAdidasSliderInSide.png);
+    display: none;    /*Esto es lo que controla que se muestre o no. */
+    transition: all 0.5 ease;
+}
+
+/* Caja foto Individual. */
+
+.NovedadesAdidas, .NovedadesRebook, .NovedadesNike, .NovedadesPuma{
     background-clip: border-box;
     background-size:contain;
     width: 100%;
     height: 100%;
-    display: none;    /*Esto es lo que controla que se muestre o no. */
-    transition: all 0.5 ease;
 }
+.NovedadesAdidas{
+    background-image: url(./assets/adidas/ModeloAdidasSliderInSide.png);
+}
+
+.NovedadesNike{
+    background-image: url(./assets/nike/modeloNikeSliderInSideSinFondo.png);
+}
+
+.NovedadesRebook{
+    background-image: url(./assets/reebook/zapatillasModeloSliderInSide.png);
+}
+
+.NovedadesPuma{
+    background-image: url(./assets/ouma/modeloPumaSliderInSide.png);
+}
+
 
 /* Caja contenedora del slider */
 .contenedorInSide{
@@ -938,6 +958,13 @@ main .flecha i:hover {
     left: 95%;
     top: 4%;
     transform: translate(-95%,-4%);
+}
+
+/* Pequeña correccion para Nike y Pumas. Ya que el porcentaje de descuento queda bastante lejos del nombre */
+
+.correccionDescuento{
+    left: 84%;
+    transform: translateX(-84%);
 }
 
 .imgenDescuentoSlider{
